@@ -6,8 +6,8 @@ export const EpisodesList = () => {
     const episodes = useAppSelector(selectEpisodes);
     const dispatch = useAppDispatch();
 
-    const onDelete = (episode: string) => {
-        dispatch(remove(episode));
+    const onDelete = (episodeId: string) => {
+        dispatch(remove(episodeId));
     }
 
     return (
@@ -17,9 +17,9 @@ export const EpisodesList = () => {
             }
             <Row>
                 {
-                    episodes?.map((episode, i) => (
+                    episodes?.map((episodeId, i) => (
                         <Col span={8} key={i} offset={2}>
-                            <EpisodeCard episodeId={episode} onDelete={onDelete}/>
+                            <EpisodeCard episodeId={episodeId} onDelete={onDelete}/>
                         </Col>
                     ))
                 }
